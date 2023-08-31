@@ -1,4 +1,4 @@
-const API_KEY = process.env.TMDB_KEY;c7c0ef4acac8943732a530a27fcd87a2
+const API_KEY = process.env.TMDB_KEY;
 
 export const getMovies = async (type) => {
   const URL = `https://api.themoviedb.org/3/movie/${type}?api_key=${API_KEY}`;
@@ -13,4 +13,15 @@ export const getMovies = async (type) => {
   }
   const { results } = await res.json();
   return results;
+};
+
+export const getVideoKey = async (movieId) => {
+  const videoUrl = `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=${API_KEY}`;
+  const res = await fetch(videoUrl);
+  if (!res.ok) {
+    // This will activate the closest `error.js` Error Boundary
+    throw new Error("Failed to fetch data");
+  }
+  const data = await res.json();
+  return data?.results[0]?.key;
 };
