@@ -1,5 +1,4 @@
-//? next.js olmayan routerlar icin default 404 sayfasi sunmaktadir. 
-//? Default 404 sayfasinin "not-found.js" ile override edebiliriz. 
+//? next.js olmayan route'lar deafult 404 sayfası sunmaktadır. Default 404 sayfasını "not-found.js" ile override edebiliriz
 
 export default function NotFound() {
   return (
